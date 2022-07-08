@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+
+{% block title %} Lista {% endblock title %} 
+{% block header %}
+<h1 class="header__title">Condominios</h1>
+{% endblock %} 
+{% block main %}
+<div class="main__box">
+  <div class="main__list">
+    {% if object_list %}
+    <div class="main__list-item">
+      <div class="main__list-item-headers-2"><h3 >Nombre</h3></div>
+      <div class="main__list-item-headers-2"><h3>Codigo</h3></div>
+    </div>
+    {% for item in object_list %}
+    <div class="main__list-item">
+      <div class="main__list-item-body-2">
+        <p>
+          {{ item.name}}
+        </p>
+      </div>
+      <div class="main__list-item-body-2">
+        <p>{{ item.code }}</p>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <div class="main__list-item">No existen resultados</div>
+    {% endif %}
+  </div>
+</div>
+
+{% include 'condominium_add.html' %}
+{% endblock %}
+
+  
